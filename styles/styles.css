@@ -107,7 +107,7 @@ button,
     cursor: pointer;
 }
 
-.social-button {
+.icon-button {
     background-color: #000000a8;
     border-width: 1px;
     color: #cf9339;
@@ -122,16 +122,47 @@ button,
     transition: 0.3s;
 }
 
-.social-button:hover,
-.social-button:active:hover,
-.social-button:visited:hover {
+.icon-button:hover,
+.icon-button:active:hover,
+.icon-button:visited:hover {
     background-color: #000000a9;
     color: white;
 }
 
-.social-button:active,
-.social-button:visited {
+.icon-button:active,
+.icon-button:visited {
     color: #cf9339;
+    background-color: #000000a8;
+}
+
+.buy-button,
+.buy-button:active,
+.buy-button:visited {
+    width: 80px;
+    height: 80px;
+    color: #ffffff;
+    background-color: #2e6321;
+}
+
+.buy-button:hover,
+.buy-button:active:hover,
+.buy-button:visited:hover {
+    background-color: #59c73d;
+}
+
+.listen-button,
+.listen-button:active,
+.listen-button:visited {
+    width: 80px;
+    height: 80px;
+    color: #ffffff;
+    background-color: #946929;
+}
+
+.listen-button:hover,
+.listen-button:active:hover,
+.listen-button:visited:hover {
+    background-color: #cf9339;
 }
 
 .bg-image {
@@ -191,22 +222,24 @@ button,
     width: min(80%, 500px);
 }
 
-.release-button {
+.action-button {
     align-items: center;
     display: flex;
     font-weight: bold;
     font-size: 3em;
-    background-color: #cf9339;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transform: scale(1);
     transition: transform 0.3s;
 }
 
-.release-button>i {
+.action-button>i {
     font-size: 0.7em;
     margin-right: 10px;
 }
 
-.release-button:hover {
+.action-button:hover {
     transform: scale(1.1);
 }
 
