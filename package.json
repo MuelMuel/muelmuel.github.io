@@ -1,7 +1,7 @@
 {
-  "name": "muelmuel.com",
+  "name": "muelmuel.github.io",
   "version": "1.0.0",
-  "description": "",
+  "description": "Muel Muel website",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Paulybri/pside.ca.git"
+    "url": "git+https://github.com/MuelMuel/muelmuel.github.io.git"
   },
-  "author": "",
+  "author": "Paul Briere",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Paulybri/pside.ca/issues"
+    "url": "https://github.com/MuelMuel/muelmuel.github.io/issues"
   },
-  "homepage": "https://github.com/Paulybri/pside.ca#readme",
+  "homepage": "https://github.com/MuelMuel/muelmuel.github.io#readme",
   "dependencies": {
-    "serve": "^11.3.2"
+    "serve": "^13.0.2"
   }
 }

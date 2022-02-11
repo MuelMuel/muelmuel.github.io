@@ -1,6 +1,7 @@
-body, html {
+body,
+html {
     height: 100vh;
-    background-color: rgb(222 182 126);
+    /*background-color: rgb(222 182 126);*/
     overflow: hidden;
     margin: 0;
     padding: 0;
@@ -24,31 +25,42 @@ section#socials {
     margin-bottom: 125px;
 }
 
+h1,
+h2,
+h3,
+.logo-more-button {
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
 h1 {
     font-size: 4em;
+    color: #ffffff;
     margin: 10 0;
 }
 
 h2 {
     font-size: 2em;
-    color: #00000098;
+    color: #ffffff;
     margin: 10 0;
 }
 
 h3 {
     font-size: 1.6em;
-    color: #00000094;
+    color: #ffffff;
     margin-bottom: 10px;
 }
 
 p {
     font-size: 1.4em;
+    color: #ffffff;
 }
 
-a, a:visited, a:hover, a:active {
+a,
+a:visited,
+a:hover,
+a:active {
     color: inherit;
     text-decoration: none;
-
 }
 
 .top-menu {
@@ -56,7 +68,7 @@ a, a:visited, a:hover, a:active {
     width: 100%;
     display: flex;
     flex-direction: row;
-    background-color: #ffd0b2ff;
+    background-color: #457638;
     padding: 5px 0px;
     box-sizing: border-box;
     position: fixed;
@@ -77,11 +89,12 @@ a, a:visited, a:hover, a:active {
     overflow: visible;
 }
 
-.top-menu-button:hover{ 
+.top-menu-button:hover {
     transform: scale(1.1);
 }
 
-button, .button {
+button,
+.button {
     font-family: 'Open Sans Condensed', sans-serif;
     -webkit-appearance: button;
     -moz-appearance: button;
@@ -94,54 +107,56 @@ button, .button {
     cursor: pointer;
 }
 
-.social-button{
-    background-color: #00000054;
+.social-button {
+    background-color: #000000a8;
     border-width: 1px;
-    color: #eaa468;
+    color: #cf9339;
     cursor: pointer;
     margin: 4 4;
     font-size: 3.5em;
     width: 95px;
     height: 95px;
-    display: flex;  
-    justify-content: center;  
-    align-items: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: 0.3s;
 }
-.social-button:hover{
-    color: #eaa468;
+
+.social-button:hover,
+.social-button:active:hover,
+.social-button:visited:hover {
     background-color: #000000a9;
+    color: white;
 }
-.social-button:active, .social-button:visited {
-    color: #eaa468;  
+
+.social-button:active,
+.social-button:visited {
+    color: #cf9339;
 }
 
 .bg-image {
     overflow: hidden;
     /* The image used */
-    background-image: url("../img/pexels-abdullah-ghatasheh-1631678.jpg");
-  
+    background-image: url("../img/guitar\ background.jpg");
     /* Add the blur effect */
-    filter: blur(5px);
-    -webkit-filter: blur(5px);
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
     transform: scale(1.03);
     position: relative;
     /* Full height */
-    height: 120vh;
-  
+    height: 110vh;
     /* Center and scale the image nicely */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     box-sizing: border-box;
+}
 
-  }
-
-.container{
+.container {
     overflow: auto;
-    top: 43px; 
-    flex:1;
+    top: 43px;
+    flex: 1;
     width: 100%;
     height: calc(100vh - 43px);
     position: absolute;
@@ -152,14 +167,18 @@ button, .button {
 }
 
 .logo-image {
-    width: min(80%, 500px);
+    width: min(80%, 700px);
     text-align: center;
+}
+
+.logo-more-button {
+    color: white;
 }
 
 .release {
     width: min(80%, 500px);
     text-align: center;
-    background-color: #ffd0b266;
+    background-color: #000000d6;
     width: 100%;
     padding-bottom: 100px;
 }
@@ -177,20 +196,21 @@ button, .button {
     display: flex;
     font-weight: bold;
     font-size: 3em;
-    background-color: #ffc786;
+    background-color: #cf9339;
     transform: scale(1);
     transition: transform 0.3s;
 }
 
-.release-button > i {
+.release-button>i {
     font-size: 0.7em;
     margin-right: 10px;
 }
-.release-button:hover{ 
+
+.release-button:hover {
     transform: scale(1.1);
 }
 
-.button-row{
+.button-row {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -207,9 +227,7 @@ button, .button {
 .about-image {
     width: 100%;
     height: 800px;
-    background-image: 
-    linear-gradient(#e8a35e00 60%, #e8a45e),
-    url('../img/about-background-500px.png');
+    background-image: linear-gradient(#e8a35e00 60%, #ffb341), url('../img/about-pic.jpg');
     background-size: cover;
     background-position: center;
     border-top-left-radius: 50px;
@@ -218,7 +236,8 @@ button, .button {
 
 .about-text {
     width: 100%;
-    background-color: #e8a45e;
+    background-color: #ffb341;
+    color: black;
     margin-top: 0px;
     padding: 10px 20px;
     padding-bottom: 40px;
@@ -227,58 +246,13 @@ button, .button {
     border-bottom-right-radius: 50px;
 }
 
-.studio{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: min(80%, 800px);
+.about-text>p {
+    color: black;
 }
 
-section#studio {
-    margin-bottom: 250px;
-    background-color: #ffd0b266;
-}
-
- .studio-image {
+.footer {
     width: 100%;
-}
-
-.studio-button {
-    width: fit-content;
-    transform: scale(1);
-    transition: transform 0.3s;
-}
-
-.studio-button:hover{ 
-    transform: scale(1.1);
-}
-
-.studio-service-list {
-    display: flex;
-    flex-direction: column;
-    margin: 30 0;
-    justify-content: left; 
-    
-}
-
-.studio-service-list-item {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;  
-    align-items: center; 
-}
-
-.studio-service-icon {
-    font-size: 3.5em;
-}
-
-.studio-service-label {
-    font-size: 2.5em;
-    margin-left: 20;
-}
-.footer{
-    width: 100%;
-    background-color: #ffc786;
+    background-color: #457638;
     display: flex;
     flex-direction: row-reverse;
     padding: 10 30;
@@ -287,13 +261,17 @@ section#studio {
     box-sizing: border-box;
 }
 
-.arrow-down{
+.arrow-down {
     font-size: 4em;
-    -webkit-animation: mover 1s infinite  alternate;
-    animation: mover 1s infinite  alternate;
+    -webkit-animation: mover 1s infinite alternate;
+    animation: mover 1s infinite alternate;
 }
 
 @-webkit-keyframes mover {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-10px); }
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
 }
