@@ -168,7 +168,8 @@ button,
 .bg-image {
     overflow: hidden;
     /* The image used */
-    background-image: url("../img/guitar\ background.jpg");
+    background-image: url("../img/carnaval.JPG");
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.459);
     /* Add the blur effect */
     filter: blur(3px);
     -webkit-filter: blur(3px);
@@ -258,11 +259,12 @@ button,
 }
 
 .about-image {
-    width: 100%;
+    width: min(100%, 800px);
     height: 800px;
-    background-image: linear-gradient(#e8a35e00 60%, #ffb341), url('../img/about-pic.jpg');
-    background-size: cover;
-    background-position: center;
+    background-image: linear-gradient(#e8a35e00 60%, #ffb341), url('../img/2_coks_souriants.jpg');
+    background-size: min(100%, 800px);
+    background-repeat: no-repeat;
+    background-position: bottom;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 }
