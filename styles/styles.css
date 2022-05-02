@@ -122,6 +122,12 @@ button,
     transition: 0.3s;
 }
 
+.smaller-icon-button {
+    width: 60px;
+    height: 60px;
+    font-size: 2.5em;
+}
+
 .icon-button:hover,
 .icon-button:active:hover,
 .icon-button:visited:hover {
@@ -197,6 +203,7 @@ button,
 .logo-image {
     width: min(80%, 700px);
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .logo-more-button {
@@ -279,6 +286,11 @@ button,
 
 .about-text>p {
     color: black;
+}
+
+.show-container{
+    width: min(100%, 1000px);
+    margin-bottom: 30px;
 }
 
 .footer {
