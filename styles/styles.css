@@ -17,8 +17,8 @@ section {
 }
 
 section#home {
-    padding-top: 100px;
-    margin-bottom: 250px;
+    padding-top: 40px;
+    margin-bottom: 100px;
 }
 
 section#socials {
@@ -74,6 +74,7 @@ a:active {
     position: fixed;
     justify-content: center;
     top: 0;
+    height: 43px;
 }
 
 .top-menu-container {
@@ -82,7 +83,7 @@ a:active {
 
 .top-menu-button {
     height: 100%;
-    font-size: 1.5em;
+    font-size: min(1.5em, 5.0vw);
     padding: 0 10;
     transform: scale(1);
     transition: transform 0.3s;
@@ -203,6 +204,12 @@ button,
 .logo-image {
     width: min(80%, 700px);
     text-align: center;
+    margin-bottom: 30px;
+}
+
+.main-image {
+    width: min(97%, 1000px);
+    border-radius: 30px;
     margin-bottom: 30px;
 }
 
