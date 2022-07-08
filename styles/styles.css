@@ -83,7 +83,7 @@ a:active {
 
 .top-menu-button {
     height: 100%;
-    font-size: min(1.5em, 5.0vw);
+    font-size: min(1.5em, 4.0vw);
     padding: 0 10;
     transform: scale(1);
     transition: transform 0.3s;
@@ -127,6 +127,14 @@ button,
     width: 60px;
     height: 60px;
     font-size: 2.5em;
+}
+
+.shop-icon-button {
+    width: auto;
+}
+
+.button-text {
+    margin-left: 10px;
 }
 
 .icon-button:hover,
