@@ -271,7 +271,7 @@ button,
 .about-image {
     width: min(100%, 800px);
     height: 800px;
-    background-image: linear-gradient(#e8a35e00 60%, #000000), url('../img/Juste\ les\ gars\ en\ galaxy.jpg');
+    background-image: linear-gradient(#e8a35e00 60%, #000000), url('../img/la\ bande.jpg');
     background-size: min(100%, 800px);
     background-repeat: no-repeat;
     background-position: bottom;
