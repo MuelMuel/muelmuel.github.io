@@ -1,8 +1,7 @@
 import ResponsiveAppBar from "./components/ResponsiveAppBar"
 import { Page } from "./components/Page"
-import { ThemeProvider } from "@emotion/react"
-import { createTheme } from "@mui/material/styles"
-import { Container, Divider, Box } from "@mui/material"
+import { Container, Divider, Box, CssBaseline, ThemeProvider } from "@mui/material"
+import { theme } from './theme'
 import { Home } from "./pages/Home"
 import { Music } from "./pages/Music"
 import { About } from "./pages/About"
@@ -13,31 +12,6 @@ import LoadingPage from "./components/LoadingPage"
 import { Shows } from "./pages/Shows"
 
 export const APP_BAR_HEIGHT = 80
-
-const theme = createTheme({
-  typography: {
-    fontFamily: `'Quicksand', sans-serif`,
-  },
-  components: {
-    MuiButtonBase: {
-      defaultProps: {
-        draggable: false
-      }
-    }
-  },
-  palette: {
-    background: {
-      paper: 'rgb(255 248 231)',
-    },
-    primary: {
-      main: 'rgb(255 220 132)'
-    },
-    secondary: {
-      main: 'rgb(240 204 255)'
-    }
-  }
-})
-
 
 function App() {
 
@@ -73,12 +47,13 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
+      <CssBaseline />
         <LoadingPage theme={theme} open={loading} />
         <Home id='home' />
         <ResponsiveAppBar />
         <Box
           sx={{
-            backgroundImage: `linear-gradient(0deg, rgb(255 244 216) 0%, ${theme.palette.primary.main} 100%)`,
+            backgroundImage: `linear-gradient(0deg, ${theme.palette.background.paper} 0%, ${theme.palette.primary.main} 100%)`,
             backgroundRepeat: 'no-repeat',
           }}>
           <Container id='body'>

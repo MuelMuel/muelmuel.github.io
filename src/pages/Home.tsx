@@ -134,6 +134,7 @@ export function Home({ id }: HomeProps) {
       </Parallax>
 
       <SpeedDial
+        FabProps={{ color: 'secondary' }}
         hidden={false}
         ariaLabel="SpeedDial basic example"
         sx={{ position: 'fixed', bottom: 30, right: 20 }}

@@ -8,7 +8,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import { ReactComponent as SiteLogo } from '../icons/text_logo.svg';
 import { Link } from "react-router-dom"
-import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, SwipeableDrawer } from '@mui/material';
+import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, SwipeableDrawer, useTheme } from '@mui/material';
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
@@ -25,6 +25,7 @@ const pages = [
 ]
 
 function ResponsiveAppBar() {
+  const theme = useTheme()
   const [drawerOpen, setDrawerOpen] = React.useState<boolean>(false);
 
   const toggleDrawer =
@@ -65,11 +66,11 @@ function ResponsiveAppBar() {
     </Box>
   );
 
-  const siteLogoComponent = <SiteLogo width={140} height={65} />
+  const siteLogoComponent = <SiteLogo width={140} height={65} fill={theme.palette.text.primary} />
 
   return (
     <>
-      <AppBar sx={{ height: APP_BAR_HEIGHT }} elevation={0} position="sticky">
+      <AppBar sx={{ backgroundColor: theme.palette.primary.main, height: APP_BAR_HEIGHT }} elevation={0} position="sticky">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             {/* Desktop Layout */}
@@ -86,8 +87,8 @@ function ResponsiveAppBar() {
                   onClick={toggleDrawer(false)}
                   sx={{
                     mx: 0.7,
-                    color: 'black',
                     display: 'block',
+                    color: theme.palette.text.primary,
                     textTransform: 'none',
                     fontSize: 'larger',
                     fontWeight: 300
