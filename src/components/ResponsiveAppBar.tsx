@@ -6,18 +6,22 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import { ReactComponent as SiteLogo } from '../icons/P-Side-Logo-500px.svg';
+import { ReactComponent as SiteLogo } from '../icons/text_logo.svg';
 import { Link } from "react-router-dom"
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, SwipeableDrawer } from '@mui/material';
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
+import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
+import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 import InfoIcon from '@mui/icons-material/Info';
 import PersonIcon from '@mui/icons-material/Person';
 import { APP_BAR_HEIGHT } from '../App'
 
 const pages = [
-  { title: 'Music', url: '/music', icon: <LibraryMusicIcon /> },
-  { title: 'About', url: '/about', icon: <InfoIcon /> },
-  { title: 'Contact', url: '/contact', icon: <PersonIcon /> },
+  { title: 'Spectacles', url: 'shows', icon: <TheaterComedyIcon /> },
+  { title: 'Boutique', url: 'shop', icon: <LocalGroceryStoreIcon /> },
+  { title: 'Musique', url: 'music', icon: <LibraryMusicIcon /> },
+  { title: 'À Propos', url: 'about', icon: <InfoIcon /> },
+  { title: 'Contact', url: 'contact', icon: <PersonIcon /> },
 ]
 
 function ResponsiveAppBar() {
@@ -61,7 +65,7 @@ function ResponsiveAppBar() {
     </Box>
   );
 
-  const siteLogoComponent = <SiteLogo width={65} height={65} />
+  const siteLogoComponent = <SiteLogo width={140} height={65} />
 
   return (
     <>
@@ -69,7 +73,7 @@ function ResponsiveAppBar() {
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             {/* Desktop Layout */}
-            <Button component={Link} to='' sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' }, mr: 1, pt: 1.1, pb: 0.6 }}>
+            <Button component={Link} to='home' sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' }, mr: 1, pt: 1.1, pb: 0.6 }}>
               {siteLogoComponent}
             </Button>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, ml: 1 }}>
@@ -104,7 +108,7 @@ function ResponsiveAppBar() {
                 <MenuIcon />
               </IconButton>
             </Box>
-            <Button component={Link} to='' sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none' }, mr: 1, pt: 1.1, pb: 0.6 }}>
+            <Button component={Link} to='home' sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none' }, mr: 1, pt: 1.1, pb: 0.6 }}>
               {siteLogoComponent}
             </Button>
             <Box sx={{ mr: 4, flexGrow: 1, display: { xs: 'flex', md: 'none' } }} />

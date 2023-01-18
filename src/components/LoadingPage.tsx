@@ -1,6 +1,6 @@
 
 import { Backdrop, Box, CircularProgress, Theme } from "@mui/material"
-import { ReactComponent as SiteLogo } from '../icons/P-Side-Logo-500px.svg';
+import { ReactComponent as SiteLogo } from '../icons/text_logo.svg';
 
 interface LoadingPageProps {
     open: boolean

@@ -10,6 +10,7 @@ import { Contact } from "./pages/Contact"
 import { useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
 import LoadingPage from "./components/LoadingPage"
+import { Shows } from "./pages/Shows"
 
 export const APP_BAR_HEIGHT = 80
 
@@ -40,21 +41,11 @@ const theme = createTheme({
 
 function App() {
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const location = useLocation();
 
   useEffect(() => {
-    // External redirection
-    switch (location.pathname) {
-      case '/portfolio':
-        window.location.replace('https://muelmuel.notion.site/Paul-Bri-re-P-Side-4963602657f94fa383ee73cb0d6877ce')
-        break
-      case '/epk':
-        window.location.replace('https://muelmuel.notion.site/P-Side-151795fcfe004ff4bd392319625e5214')
-        break
-    }
-
     if (loading) {
       return
     }
@@ -91,11 +82,15 @@ function App() {
             backgroundRepeat: 'no-repeat',
           }}>
           <Container id='body'>
-            <Page title="Music" id="music">
+            <Page title="Spectacles" id="shows">
+              <Shows />
+            </Page>
+            <Divider />
+            <Page title="Musique" id="music">
               <Music onAllImagesLoaded={() => imagesLoaded()} />
             </Page>
             <Divider />
-            <Page title="About" id="about">
+            <Page title="À Propos" id="about">
               <About />
             </Page>
             <Divider />

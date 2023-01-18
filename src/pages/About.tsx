@@ -12,7 +12,7 @@ function AboutCard() {
     <Card raised={false} sx={{ maxWidth: 600, borderRadius: 5 }}>
       <CardMedia
         sx={{ height: 350 }}
-        image="/images/cailloux.jpg"
+        image="/images/la bande.jpg"
         title="Cute P-Side"
       />
       <CardContent>

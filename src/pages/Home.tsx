@@ -1,19 +1,19 @@
 import { Box } from "@mui/system";
-import { ReactComponent as SiteLogo } from '../icons/P-Side-Logo-500px.svg';
-import { Parallax } from 'react-parallax'
-import { Button, Fade, IconButton, SpeedDial, SpeedDialAction } from "@mui/material";
+import { Background, Parallax } from 'react-parallax'
+import { Checkbox, IconButton, SpeedDial, SpeedDialAction, useTheme } from "@mui/material";
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import { BsSpotify } from 'react-icons/bs'
 import { BsInstagram } from 'react-icons/bs'
 import { BsFacebook } from 'react-icons/bs'
 import { FaTiktok } from 'react-icons/fa'
 import { BsYoutube } from 'react-icons/bs'
-import { BsChevronDown } from "react-icons/bs";
-import React from "react";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion"
+import React, { useEffect, useRef } from "react";
 import { APP_BAR_HEIGHT } from '../App'
 import { useSyncPagePath } from "../hooks/useSyncPagePath";
+import VolumeOffIcon from '@mui/icons-material/VolumeOff';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import { useInView } from "react-intersection-observer";
+
 
 type HomeProps = {
   id: string,
@@ -29,15 +29,51 @@ export function Home({ id }: HomeProps) {
     { name: 'Youtube', icon: <BsYoutube />, link: 'https://www.youtube.com/channel/UCsBTfAYSvmDnssnp6jnNGDQ' },
   ]
 
-  const [showSocialButtons, setShowSocialButtons] = React.useState<boolean>(false);
-  const [showChevron, setShowChevron] = React.useState<boolean>(false);
+  const [muted, setMuted] = React.useState<boolean>(true);
 
-  const ref = useSyncPagePath(id);
+  const { ref, inView, entry } = useInView()
+  const blurredVideoRef = useRef<HTMLVideoElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const topAchorRef = useSyncPagePath(id);
+  const theme = useTheme()
+
+  useEffect(() => {
+    if (inView) {
+      blurredVideoRef.current?.play()
+      videoRef.current?.play()
+    } else {
+      blurredVideoRef.current?.pause()
+      videoRef.current?.pause()
+    }
+
+  }
+    , [entry])
 
   return (
     <>
-      <Parallax style={{ zIndex: 5000 }} blur={5} bgImage="/images/sunset-background.jpg" strength={400} bgImageStyle={{ translate: '0px -200px' }}>
+      <Parallax style={{ zIndex: theme.zIndex.drawer - 1 }} strength={400}>
+        <Background>
+          <Box
+            sx={{ backgroundColor: "black" }}
+            display='flex'
+            flexDirection="column"
+            justifyContent="space-around"
+            width="100vw"
+            style={{
+              height: `calc(100dvh - ${APP_BAR_HEIGHT}px)`,
+            }}>
+            <video ref={blurredVideoRef} style={{ filter: "blur(15px)", width: 'calc(100dvh / 9 * 16)' }} autoPlay muted loop>
+              <source src="/videos/Muel Muel Teaser.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <video ref={videoRef} style={{ position: "absolute", width: "100%" }} autoPlay muted={muted} loop>
+              <source src="/videos/Muel Muel Teaser.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </Box>
+        </Background>
         <Box
+          ref={ref}
           id={id}
           display='flex'
           alignItems='center'
@@ -47,7 +83,18 @@ export function Home({ id }: HomeProps) {
           style={{
             height: `calc(100dvh - ${APP_BAR_HEIGHT}px)`,
           }}>
-          <Fade in timeout={2000} onEntering={() => setShowSocialButtons(true)}>
+          <Box width="100%" height={10} ref={topAchorRef} top={-10} />
+          <Box
+            position="absolute"
+            right={10}
+            bottom={10}>
+            <Checkbox
+              defaultChecked={true}
+              onChange={(e) => setMuted(e.target.checked)}
+              icon={<VolumeUpIcon sx={{ fill: "white" }} />}
+              checkedIcon={<VolumeOffIcon sx={{ fill: "white" }} />} />
+          </Box>
+          {/* <Fade in timeout={2000} onEntering={() => setShowSocialButtons(true)}>
             <Box ref={ref} width='80%' maxWidth={500} height='60%'>
               <SiteLogo
                 width="100%"
@@ -82,7 +129,7 @@ export function Home({ id }: HomeProps) {
                 <BsChevronDown fontSize={60} />
               </Button>
             </Box>
-          </Fade>
+          </Fade> */}
         </Box>
       </Parallax>
 

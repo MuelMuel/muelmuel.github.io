@@ -22,7 +22,7 @@ export default function Album({ name, imgUrl, releaseDate, presaveUrl, listenUrl
 
     return (
         <Card raised={false} sx={{ maxWidth: 420, borderRadius: 5 }}>
-            <CardHeader title={name} subheader={isReleased ? "Out Now" : formattedDate} action={
+            <CardHeader title={name} subheader={isReleased ? "Disponible partout" : formattedDate} action={
                 <Button
                     draggable={false}
                     size='large'
@@ -32,7 +32,7 @@ export default function Album({ name, imgUrl, releaseDate, presaveUrl, listenUrl
                     startIcon={isReleased ? <PlayArrow /> : <DownloadIcon />}
                     href={isReleased ? listenUrl : presaveUrl}
                     target="_blank">
-                    {isReleased ? "Listen" : "Pre-Save"}
+                    {isReleased ? "Écouter" : "Pre-Save"}
                 </Button>} />
             <CardContent>
                 <CardMedia

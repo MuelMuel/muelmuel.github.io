@@ -1,9 +1,9 @@
 import { Box, Container, IconButton, Typography } from "@mui/material";
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 
-const contactEmail = 'mgmt@muelmuel.com'
+const contactEmail = 'info@pside.ca'
 
-export function Contact() {
+export function Shows() {
   return (
     <Container sx={{my: 4, display: 'flex', flexDirection: 'column', gap: 7, alignItems: 'center'}}>
       <Box display='flex' flexDirection='column' alignItems='center'>
