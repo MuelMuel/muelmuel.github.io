@@ -11,14 +11,12 @@ import { Link } from "react-router-dom"
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, SwipeableDrawer, useTheme } from '@mui/material';
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
-import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 import InfoIcon from '@mui/icons-material/Info';
 import PersonIcon from '@mui/icons-material/Person';
 import { APP_BAR_HEIGHT } from '../App'
 
 const pages = [
   { title: 'Spectacles', url: 'shows', icon: <TheaterComedyIcon /> },
-  { title: 'Boutique', url: 'shop', icon: <LocalGroceryStoreIcon /> },
   { title: 'Musique', url: 'music', icon: <LibraryMusicIcon /> },
   { title: 'À Propos', url: 'about', icon: <InfoIcon /> },
   { title: 'Contact', url: 'contact', icon: <PersonIcon /> },

@@ -1,12 +1,14 @@
 import { Box } from "@mui/system";
 import { Background, Parallax } from 'react-parallax'
-import { Checkbox, IconButton, SpeedDial, SpeedDialAction, useTheme } from "@mui/material";
+import { Checkbox, Fade, IconButton, SpeedDial, SpeedDialAction, useTheme } from "@mui/material";
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import { BsSpotify } from 'react-icons/bs'
 import { BsInstagram } from 'react-icons/bs'
 import { BsFacebook } from 'react-icons/bs'
 import { FaTiktok } from 'react-icons/fa'
 import { BsYoutube } from 'react-icons/bs'
+import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
+import { FaBandcamp } from 'react-icons/fa'
 import React, { useEffect, useRef } from "react";
 import { APP_BAR_HEIGHT } from '../App'
 import { useSyncPagePath } from "../hooks/useSyncPagePath";
@@ -22,11 +24,13 @@ type HomeProps = {
 export function Home({ id }: HomeProps) {
 
   const socials = [
-    { name: 'Spotify', icon: <BsSpotify />, link: 'https://open.spotify.com/artist/14pk52yKqb0NFQivwORvAw?si=RC1FCHRaR822ihVH5SntXQ' },
-    { name: 'Instagram', icon: <BsInstagram />, link: 'https://www.instagram.com/p_side_94/' },
-    { name: 'TikTok', icon: <FaTiktok />, link: 'https://www.tiktok.com/@p.side' },
+    { name: 'Boutique', icon: <LocalGroceryStoreIcon />, link: 'https://muellorama.etsy.com' },
+    { name: 'Spotify', icon: <BsSpotify />, link: 'https://open.spotify.com/artist/0p2bkdtDkZZ2avOyUeHTRV?si=D-MWnlURT62s59r-DbBW3g' },
+    { name: 'Instagram', icon: <BsInstagram />, link: 'https://www.instagram.com/muelmuel_musique/' },
+    { name: 'TikTok', icon: <FaTiktok />, link: 'https://www.tiktok.com/@muelmuelmusique' },
     { name: 'Facebook', icon: <BsFacebook />, link: 'https://www.facebook.com/p.side.94/' },
-    { name: 'Youtube', icon: <BsYoutube />, link: 'https://www.youtube.com/channel/UCsBTfAYSvmDnssnp6jnNGDQ' },
+    { name: 'Youtube', icon: <BsYoutube />, link: 'https://www.youtube.com/channel/UC4hyytUfOmzNLPKdoBMX0Ng' },
+    { name: 'Bandcamp', icon: <FaBandcamp />, link: 'https://muelmuel.bandcamp.com/' },
   ]
 
   const [muted, setMuted] = React.useState<boolean>(true);
@@ -77,13 +81,22 @@ export function Home({ id }: HomeProps) {
           id={id}
           display='flex'
           alignItems='center'
-          justifyContent='center'
+          justifyContent='end'
           flexDirection='column'
           width='100%'
           style={{
             height: `calc(100dvh - ${APP_BAR_HEIGHT}px)`,
           }}>
           <Box width="100%" height={10} ref={topAchorRef} top={-10} />
+          <Fade in timeout={2000}>
+            <Box sx={{borderRadius: 20, backgroundColor: 'rgba(0 0 0 / 40%)'}} mb={8} p={1} alignItems='top' display='flex' gap={1}>
+              {socials.map((social) =>
+                <IconButton href={social.link} target="_blank" sx={{fontSize: 'x-large'}}>
+                  {social.icon}
+                </IconButton>
+              )}
+            </Box>
+          </Fade>
           <Box
             position="absolute"
             right={10}
@@ -94,42 +107,6 @@ export function Home({ id }: HomeProps) {
               icon={<VolumeUpIcon sx={{ fill: "white" }} />}
               checkedIcon={<VolumeOffIcon sx={{ fill: "white" }} />} />
           </Box>
-          {/* <Fade in timeout={2000} onEntering={() => setShowSocialButtons(true)}>
-            <Box ref={ref} width='80%' maxWidth={500} height='60%'>
-              <SiteLogo
-                width="100%"
-                height="100%" />
-            </Box>
-          </Fade>
-          <Fade in={showSocialButtons} timeout={1500} onEntered={() => setShowChevron(true)}>
-            <Box mb={5} alignItems='top' display='flex' gap={1}>
-              {socials.map((social) =>
-                <IconButton href={social.link} target="_blank" size={'large'}>
-                  {social.icon}
-                </IconButton>
-              )}
-            </Box>
-          </Fade>
-          <Fade in={showChevron} timeout={2000}>
-            <Box
-              component={motion.div}
-              animate={{
-                translateY: [0, 10, 0],
-                scale: [1, 1.1, 1]
-              }}
-              transition={{
-                duration: 2.5,
-                repeat: Infinity
-              }}
-            >
-              <Button
-                color="inherit"
-                component={Link}
-                to='/body'>
-                <BsChevronDown fontSize={60} />
-              </Button>
-            </Box>
-          </Fade> */}
         </Box>
       </Parallax>
 
