@@ -1,6 +1,6 @@
 import { Box } from "@mui/system";
 import { Background, Parallax } from 'react-parallax'
-import { Checkbox, Fade, IconButton, SpeedDial, SpeedDialAction, useTheme } from "@mui/material";
+import { Checkbox, Fade, IconButton, SpeedDial, SpeedDialAction, useTheme, Slider, Slide } from "@mui/material";
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import { BsSpotify } from 'react-icons/bs'
 import { BsInstagram } from 'react-icons/bs'
@@ -15,6 +15,7 @@ import { useSyncPagePath } from "../hooks/useSyncPagePath";
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion"
 
 
 type HomeProps = {
@@ -40,6 +41,12 @@ export function Home({ id }: HomeProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const topAchorRef = useSyncPagePath(id);
   const theme = useTheme()
+
+  const defaultVideoVolume = 0.5
+
+  useEffect(() => {
+    videoRef.current!.volume = defaultVideoVolume
+  })
 
   useEffect(() => {
     if (inView) {
@@ -89,23 +96,44 @@ export function Home({ id }: HomeProps) {
           }}>
           <Box width="100%" height={10} ref={topAchorRef} top={-10} />
           <Fade in timeout={2000}>
-            <Box sx={{borderRadius: 20, backgroundColor: 'rgba(0 0 0 / 40%)'}} mb={8} p={1} alignItems='top' display='flex' gap={1}>
+            <Box sx={{ borderRadius: 20, backgroundColor: 'rgba(0 0 0 / 40%)' }} mb={8} p={1} alignItems='top' display='flex' gap={1}>
               {socials.map((social) =>
-                <IconButton href={social.link} target="_blank" sx={{fontSize: 'x-large'}}>
+                <IconButton href={social.link} target="_blank" sx={{ fontSize: 'x-large' }}>
                   {social.icon}
                 </IconButton>
               )}
             </Box>
           </Fade>
           <Box
+            component={motion.div}
+            display="flex"
+            alignItems="center"
+            justifyContent="flex-end"
+            gap={1}
             position="absolute"
-            right={10}
-            bottom={10}>
+            right={-80}
+            bottom={10}
+            animate={{
+              x: muted ? 0 : -100
+            }}
+            transition={{
+              type: 'spring',
+              stiffness: 700,
+              damping: 30
+            }}>
             <Checkbox
               defaultChecked={true}
               onChange={(e) => setMuted(e.target.checked)}
               icon={<VolumeUpIcon sx={{ fill: "white" }} />}
               checkedIcon={<VolumeOffIcon sx={{ fill: "white" }} />} />
+            <Slider
+              min={0}
+              max={1}
+              step={0.01}
+              defaultValue={defaultVideoVolume}
+              onChange={(_, val) => videoRef.current!.volume = Number(val)}
+              size="small"
+              sx={{ color: "white", width: 80 }} />
           </Box>
         </Box>
       </Parallax>
