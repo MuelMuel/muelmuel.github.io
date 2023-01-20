@@ -1,6 +1,6 @@
 import { Box } from "@mui/system";
 import { Background, Parallax } from 'react-parallax'
-import { Checkbox, Fade, IconButton, SpeedDial, SpeedDialAction, useTheme, Slider, Slide } from "@mui/material";
+import { Checkbox, Fade, IconButton, SpeedDial, SpeedDialAction, useTheme, Slider } from "@mui/material";
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import { BsSpotify } from 'react-icons/bs'
 import { BsInstagram } from 'react-icons/bs'
@@ -36,17 +36,17 @@ export function Home({ id, onVideoLoaded }: HomeProps) {
   ]
 
   const [muted, setMuted] = React.useState<boolean>(true);
+  const [volume, setVolume] = React.useState<number>(0.5);
 
   const { ref, inView, entry } = useInView()
   const blurredVideoRef = useRef<HTMLVideoElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const topAchorRef = useSyncPagePath(id);
   const theme = useTheme()
-
-  const defaultVideoVolume = 0.5
+  const volumeSliderRef = useRef(null)
 
   useEffect(() => {
-    videoRef.current!.volume = defaultVideoVolume
+    videoRef.current!.volume = volume
   })
 
   useEffect(() => {
@@ -72,9 +72,9 @@ export function Home({ id, onVideoLoaded }: HomeProps) {
             justifyContent="space-around"
             width="100vw"
             style={{
-              height: `calc(100dvh - ${APP_BAR_HEIGHT}px)`,
+              height: `calc(${window.innerHeight}px - ${APP_BAR_HEIGHT}px)`,
             }}>
-            <video ref={blurredVideoRef} style={{ filter: "blur(15px)", width: 'calc(100dvh / 9 * 16)' }} autoPlay muted loop>
+            <video ref={blurredVideoRef} style={{ filter: "blur(15px)", width: `calc(${window.innerHeight}px / 9 * 16)` }} autoPlay muted loop>
               <source src="/videos/Muel Muel Teaser.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
@@ -93,7 +93,7 @@ export function Home({ id, onVideoLoaded }: HomeProps) {
           flexDirection='column'
           width='100%'
           style={{
-            height: `calc(100dvh - ${APP_BAR_HEIGHT}px)`,
+            height: `calc(${window.innerHeight}px - ${APP_BAR_HEIGHT}px)`,
           }}>
           <Box width="100%" height={10} ref={topAchorRef} top={-10} />
           <Fade in timeout={2000}>
@@ -124,15 +124,21 @@ export function Home({ id, onVideoLoaded }: HomeProps) {
             }}>
             <Checkbox
               defaultChecked={true}
-              onChange={(e) => setMuted(e.target.checked)}
+              onChange={(e) =>{
+                setMuted(e.target.checked)
+                setVolume(0.5)
+              }}
               icon={<VolumeUpIcon sx={{ fill: "white" }} />}
               checkedIcon={<VolumeOffIcon sx={{ fill: "white" }} />} />
             <Slider
               min={0}
               max={1}
               step={0.01}
-              defaultValue={defaultVideoVolume}
-              onChange={(_, val) => videoRef.current!.volume = Number(val)}
+              value={volume}
+              onChange={(_, val) => {
+                setVolume(Number(val))
+                videoRef.current!.volume = volume
+              }}
               size="small"
               sx={{ color: "white", width: 80 }} />
           </Box>

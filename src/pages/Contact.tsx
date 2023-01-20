@@ -1,6 +1,5 @@
 import { Box, Container, IconButton, Typography } from "@mui/material";
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import { MailchimpSubscribeForm } from "../components/MailChimpSubscribeForm";
 
 const contactEmail = 'mgmt@muelmuel.com'
 

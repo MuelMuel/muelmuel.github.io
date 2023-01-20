@@ -1,7 +1,6 @@
 import { Card, Container } from "@mui/material";
 import { useExternalScripts } from "../hooks/useExternalScript";
 
-const contactEmail = 'info@pside.ca'
 
 export function Shows() {
   useExternalScripts("//widget.songkick.com/10196177/widget.js")
