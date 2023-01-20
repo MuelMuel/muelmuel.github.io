@@ -84,7 +84,7 @@ function ResponsiveAppBar() {
                   key={page.title}
                   onClick={toggleDrawer(false)}
                   sx={{
-                    mx: 0.7,
+                    mx: 1.3,
                     display: 'block',
                     color: theme.palette.text.primary,
                     textTransform: 'none',

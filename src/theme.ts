@@ -17,7 +17,7 @@ export const theme = createTheme({
       main: '#2a1c3f',
     },
     secondary: {
-      main: '#f1558b',
+      main: '#ef7da4',
     },
   }
 })

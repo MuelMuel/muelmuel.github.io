@@ -28,7 +28,7 @@ export function Home({ id }: HomeProps) {
     { name: 'Spotify', icon: <BsSpotify />, link: 'https://open.spotify.com/artist/0p2bkdtDkZZ2avOyUeHTRV?si=D-MWnlURT62s59r-DbBW3g' },
     { name: 'Instagram', icon: <BsInstagram />, link: 'https://www.instagram.com/muelmuel_musique/' },
     { name: 'TikTok', icon: <FaTiktok />, link: 'https://www.tiktok.com/@muelmuelmusique' },
-    { name: 'Facebook', icon: <BsFacebook />, link: 'https://www.facebook.com/p.side.94/' },
+    { name: 'Facebook', icon: <BsFacebook />, link: 'https://www.facebook.com/muelmuelmusique/' },
     { name: 'Youtube', icon: <BsYoutube />, link: 'https://www.youtube.com/channel/UC4hyytUfOmzNLPKdoBMX0Ng' },
     { name: 'Bandcamp', icon: <FaBandcamp />, link: 'https://muelmuel.bandcamp.com/' },
   ]

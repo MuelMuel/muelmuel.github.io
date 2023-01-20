@@ -15,7 +15,6 @@ export function Contact() {
           {contactEmail}
         </Typography>
       </Box>
-      <MailchimpSubscribeForm />
     </Container>
   )
 }

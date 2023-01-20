@@ -1,4 +1,5 @@
 import { Box, Card, CardContent, CardMedia, Container, Typography } from "@mui/material";
+import { MailchimpSubscribeForm } from "../components/MailChimpSubscribeForm";
 
 type ContourProps = {
   color: string,
@@ -53,6 +54,7 @@ export function About() {
           </ContourBox>
         </ContourBox>
       </ContourBox>
+      <MailchimpSubscribeForm />
     </Container>
   )
 }
