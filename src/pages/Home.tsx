@@ -20,9 +20,10 @@ import { motion } from "framer-motion"
 
 type HomeProps = {
   id: string,
+  onVideoLoaded: (() => void)
 };
 
-export function Home({ id }: HomeProps) {
+export function Home({ id, onVideoLoaded }: HomeProps) {
 
   const socials = [
     { name: 'Boutique', icon: <LocalGroceryStoreIcon />, link: 'https://muellorama.etsy.com' },
@@ -77,7 +78,7 @@ export function Home({ id }: HomeProps) {
               <source src="/videos/Muel Muel Teaser.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            <video ref={videoRef} style={{ position: "absolute", width: "100%" }} autoPlay muted={muted} loop>
+            <video ref={videoRef} style={{ position: "absolute", width: "100%" }} autoPlay muted={muted} loop onLoadStart={onVideoLoaded}>
               <source src="/videos/Muel Muel Teaser.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>

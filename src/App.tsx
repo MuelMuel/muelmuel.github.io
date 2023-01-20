@@ -15,7 +15,7 @@ export const APP_BAR_HEIGHT = 80
 
 function App() {
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const location = useLocation();
 
@@ -26,7 +26,7 @@ function App() {
     scrollToLocation()
   }, [location])
 
-  const imagesLoaded = () => {
+  const videoLoaded = () => {
     setLoading(false)
     scrollToLocation()
   }
@@ -49,7 +49,7 @@ function App() {
       <ThemeProvider theme={theme}>
       <CssBaseline />
         <LoadingPage theme={theme} open={loading} />
-        <Home id='home' />
+        <Home id='home' onVideoLoaded={() => videoLoaded()}/>
         <ResponsiveAppBar />
         <Box
           sx={{
@@ -62,7 +62,7 @@ function App() {
             </Page>
             <Divider />
             <Page title="Musique" id="music">
-              <Music onAllImagesLoaded={() => imagesLoaded()} />
+              <Music onAllImagesLoaded={() => {}} />
             </Page>
             <Divider />
             <Page title="À Propos" id="about">

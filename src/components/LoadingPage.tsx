@@ -19,8 +19,8 @@ export default function LoadingPage({ open, theme }: LoadingPageProps) {
             }}
             open={open}
         >
-            <Box pl={1} mb={4}>
-                <SiteLogo width="90px" height='90px' />
+            <Box pl={0} mb={0}>
+                <SiteLogo fill={theme.palette.text.primary} width="180px" height='90px' />
             </Box>
             <CircularProgress color="inherit" />
         </Backdrop>
