@@ -50,7 +50,7 @@ const CustomForm = ({ status, message, onValidated }: CustomFormProps) => {
         <Card sx={{ maxWidth: 500, width: "100%", borderRadius: 5 }}>
             <CardMedia
                 sx={{ width: "100%", height: 180}}
-                image="/images/colkeux.jpg"
+                image="/images/DSCF2888.jpg"
                 title="La bande des besogneux"
             />
             <CardHeader title="Tu veux rien manquer de Muel?" subheader="Abonne-toi à notre infolettre, mon buddy." />

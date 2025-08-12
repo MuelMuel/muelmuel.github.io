@@ -13,7 +13,7 @@ function AboutCard() {
     <Card raised={false} sx={{ maxWidth: 600, borderRadius: 5 }}>
       <CardMedia
         sx={{ height: 350 }}
-        image="/images/la bande.jpg"
+        image="/images/DSCF2923.jpg"
         title="La bande des besogneux"
       />
       <CardContent>
